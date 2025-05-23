@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 # ---------- Page Setup ----------
-st.set_page_config(layout="wide", page_title="🧠 Hyperparameter Tuner", page_icon="💡")
+st.set_page_config(layout="wide", page_title="Hyperparameter Tuner", page_icon="💡")
 
 # ---------- Custom Neon CSS + Font + Background ----------
 st.markdown("""
