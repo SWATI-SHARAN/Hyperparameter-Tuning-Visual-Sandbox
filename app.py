@@ -31,8 +31,8 @@ if uploaded_file:
     param_grid = {}
     if model_name == "KNN":
         st.write("Tune number of neighbors (n_neighbors) and weight function (weights)")
-        n_neighbors = st.slider("n_neighbors", 1, 20, (1, 10))
-        weights_options = st.multiselect("weights", ["uniform", "distance"], default=["uniform", "distance"])
+        n_neighbors = st.slider("👥 n_neighbors", 1, 20, (1, 10))
+        weights_options = st.multiselect("⚖️weights", ["uniform", "distance"], default=["uniform", "distance"])
         param_grid = {
             'n_neighbors': list(range(n_neighbors[0], n_neighbors[1] + 1)),
             'weights': weights_options
@@ -41,8 +41,8 @@ if uploaded_file:
 
     elif model_name == "Random Forest":
         st.write("Tune number of trees (n_estimators) and max depth (max_depth)")
-        n_estimators = st.slider("n_estimators", 10, 200, (10, 50))
-        max_depth = st.slider("max_depth", 1, 20, (1, 10))
+        n_estimators = st.slider("🌲n_estimators", 10, 200, (10, 50))
+        max_depth = st.slider("🧬max_depth", 1, 20, (1, 10))
         param_grid = {
             'n_estimators': list(range(n_estimators[0], n_estimators[1] + 1, 10)),
             'max_depth': list(range(max_depth[0], max_depth[1] + 1))
@@ -51,8 +51,8 @@ if uploaded_file:
 
     else:  # Logistic Regression
         st.write("Tune regularization strength (C) and solver")
-        c_vals = st.slider("C (inverse regularization strength)", 0.01, 10.0, (0.01, 1.0), step=0.01)
-        solvers = st.multiselect("Solver", ['lbfgs', 'liblinear', 'saga'], default=['lbfgs', 'liblinear'])
+        c_vals = st.slider("🧮C (inverse regularization strength)", 0.01, 10.0, (0.01, 1.0), step=0.01)
+        solvers = st.multiselect("⚙️Solver", ['lbfgs', 'liblinear', 'saga'], default=['lbfgs', 'liblinear'])
         param_grid = {
             'C': np.round(np.linspace(c_vals[0], c_vals[1], num=10), 2),
             'solver': solvers
@@ -72,7 +72,7 @@ if uploaded_file:
         if label_type not in ['binary', 'multiclass']:
             st.error(f"❌ Target column must be categorical for classification models. Detected label type: '{label_type}'.")
         else:
-            st.info("🔄 Running GridSearchCV...")
+            st.info("🔄 Running GridSearchCV...⏳")
 
             scorer = make_scorer(accuracy_score)
             grid_search = GridSearchCV(model, param_grid, cv=3, scoring=scorer, n_jobs=-1)
