@@ -14,7 +14,6 @@ A stunning, interactive Streamlit app for **hyperparameter tuning** and **visual
   - Heatmap of performance
   - Interactive line plots
   - 3D hyperparameter landscape (Plotly)
-- A futuristic **neon UI** with animated particle background
 
 ## Tech Stack
 
